@@ -1,7 +1,8 @@
 public class Intern {
 
-    public Intern(){
-        
+    private String name;
+    public Intern(String name){
+        this.name = name;
     }
 
 }
