@@ -1,0 +1,20 @@
+#page {height:680px; width:1000px; margin:0 auto}
+
+#header-container {height:100px; background: #f1e2fa
+}
+
+#header{background: #e0cae2; width:1000px; height: 100%; margin:0}
+
+#messages-container {height:50px; margin:0; display: inline-block;}
+
+#messages {background: #ffffff; width:1000px; height: 100%; margin:0; display: inline-block;}
+
+#content-container {height:100%; margin:0}
+
+#content {float:left; background: #EDEDED; width:700px;  height:100%; margin:0}
+
+#sidebar {float:left; background: #EDEDED; width:300px;  height:100%; margin:0}
+
+#footer-container {height:100px; margin:0; clear:both; display: inline-block;}
+
+#footer {background: #EDEDED; width:1000px; height:100%; margin:0 auto; display: inline-block;}
