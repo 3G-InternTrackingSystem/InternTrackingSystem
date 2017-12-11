@@ -1,5 +1,3 @@
-package Internship;
-
 import sun.java2d.pipe.AATextRenderer;
 
 import java.util.ArrayList;

@@ -25,7 +25,7 @@ public class Connector {
   return con;
  }
  
- public static ResultSet getResult(String tableName){ // tüm TABLOYU çeker
+ public static ResultSet getResult(String tableName){ // tï¿½m TABLOYU ï¿½eker
   ResultSet rs = null;
   try{
    con = getConnection();
@@ -39,7 +39,7 @@ public class Connector {
   return rs;
  }
  
- public static ResultSet getRowResult(String tableName, String columnName ,int id){  // tek bir SATIRI çekmek için
+ public static ResultSet getRowResult(String tableName, String columnName ,int id){  // tek bir SATIRI ï¿½ekmek iï¿½in
   ResultSet rs = null;
   try{
    con = getConnection();
@@ -52,7 +52,7 @@ public class Connector {
   }
   return rs;
  }
- public static ResultSet getConditionalResult(String colName1, String tableName ,String colName2 ,String id){  // tek bir HÜCREYÝ çekmek için
+ public static ResultSet getConditionalResult(String colName1, String tableName ,String colName2 ,String id){  // tek bir Hï¿½CREYï¿½ ï¿½ekmek iï¿½in
   ResultSet rs = null;
   try{
    con = getConnection();
@@ -66,7 +66,7 @@ public class Connector {
   }
   return rs;
  }
- public static ResultSet getConditionalStringResult(String colName1, String tableName ,String colName2 ,String id){  // tek bir HÜCREYÝ çekmek için
+ public static ResultSet getConditionalStringResult(String colName1, String tableName ,String colName2 ,String id){  // tek bir Hï¿½CREYï¿½ ï¿½ekmek iï¿½in
   ResultSet rs = null;
   try{
    con = getConnection();
@@ -80,7 +80,7 @@ public class Connector {
   }
   return rs;
  }
- public static ResultSet verifyUser(String colName1,String colName2 ,String tableName , String name, String passw){  // tek bir HÜCREYÝ çekmek için
+ public static ResultSet verifyUser(String colName1,String colName2 ,String tableName , String name, String passw){  // tek bir Hï¿½CREYï¿½ ï¿½ekmek iï¿½in
   ResultSet rs = null;
   try{
    con = getConnection();
@@ -106,7 +106,7 @@ public class Connector {
   return sb.toString();
  }
  
- static String showConditionalData (ResultSet rs , String colName) throws SQLException // tek HÜCREYÝ çekerken
+ static String showConditionalData (ResultSet rs , String colName) throws SQLException // tek Hï¿½CREYï¿½ ï¿½ekerken
  {
   String qstn = "";
   while(rs.next())

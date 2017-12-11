@@ -1,5 +1,3 @@
-package Internship;
-
 public class User {
 
     // ATTRIBUTES

@@ -1,17 +1,16 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="trackIn:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/trackIn_war_exploded</output-path>
+  <artifact type="exploded-war" name="track-in:war exploded">
+    <output-path>$PROJECT_DIR$/src/out/artifacts/track_in_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="trackIn/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="trackIn" />
+          <element id="module-output" name="track-in" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="PrimeFaces-6.1" />
-          <element id="library" level="project" name="Mojarra-2.2.1" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="track-in/web/Web" />
     </root>
   </artifact>
 </component>

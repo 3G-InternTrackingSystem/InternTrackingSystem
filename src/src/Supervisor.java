@@ -1,5 +1,3 @@
-package Internship;
-
 import java.util.ArrayList;
 import java.util.Date;
 
