@@ -5,15 +5,19 @@
 
 #header{background: #e0cae2; width:1000px; height: 100%; margin:0}
 
-#messages-container {height:50px; margin:0; display: inline-block;}
+#menubar-container {height:50px; margin:0; display: inline-block;}
 
-#messages {background: #ffffff; width:1000px; height: 100%; margin:0; display: inline-block;}
+#menubar {background: #ffffff; width:1000px; height: 100%; margin:0; display: inline-block;}
 
 #content-container {height:100%; margin:0}
 
-#content {float:left; background: #EDEDED; width:700px;  height:100%; margin:0}
+#content {
+    background: #EDEDED;
+    width:100%;
+    height:100%;
+    align-content: center;
+}
 
-#sidebar {float:left; background: #EDEDED; width:300px;  height:100%; margin:0}
 
 #footer-container {height:100px; margin:0; clear:both; display: inline-block;}
 

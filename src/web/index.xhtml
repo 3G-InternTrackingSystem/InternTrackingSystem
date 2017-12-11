@@ -11,21 +11,11 @@
 </h:head>
 <h:body>
     <ui:composition template="layout.xhtml">
-        <ui:define name="header">
-            <div>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:graphicImage
-                            value = "http://www.tutorialspoint.com/images/jsf-mini-logo.png" width="90" height="90"/>
-                    <h1>TrackIn</h1>
-                </h:panelGrid>
-            </div>
-
-        </ui:define>
         <ui:define name="content">
             <h:form id="loginform">
                 <p:tabView>
                     <p:tab title="Login">
-                        <h:panelGrid columns="2" cellpadding="10">
+                        <h:panelGrid columns="2" cellpadding="5">
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">User Name: </i></span>
                                 <p:inputText placeholder="Username" id = "usernameLogin" value="#{userBean.userName}"/>
