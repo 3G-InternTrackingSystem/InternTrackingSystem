@@ -1,5 +1,6 @@
 package util;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,6 +10,8 @@ import java.util.logging.Logger;
 //TODO implement( edit) it as a managed bean
 //TODO add annotation ApplicationScope
 //TODO migrate the methods from Connector class
+
+@ApplicationScoped
 public class DatabaseConnection
 {
     private Logger logger = Logger.getLogger(getClass().getName());

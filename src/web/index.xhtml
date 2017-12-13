@@ -18,15 +18,15 @@
                         <h:panelGrid columns="2" cellpadding="5">
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">User Name: </i></span>
-                                <p:inputText placeholder="Username" id = "usernameLogin" value="#{userBean.userName}"/>
+                                <p:inputText placeholder="Username" id = "usernameLogin" value="#{account.userName}"/>
                             </div>
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">Password : </i></span>
-                                <p:inputText placeholder="Password" id = "passwordLogin" value="#{userBean.password}" />
+                                <p:inputText placeholder="Password" id = "passwordLogin" value="#{account.password}" />
                             </div>
                             <f:facet name = "footer">
                                 <h:panelGroup style = "display:block; text-align:center">
-                                    <h:commandButton id = "login" value = "Login" actionListener="#{buttonView.login}" ajax="false" />
+                                    <h:commandButton id = "login" value = "Login" actionListener="#{account.loginUser}" ajax="false" />
                                 </h:panelGroup>
                             </f:facet>
                         </h:panelGrid>
@@ -35,18 +35,18 @@
                         <h:panelGrid columns="2" cellpadding="10">
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">User Name: </i></span>
-                                <p:inputText placeholder="Username" id = "username" value="#{userBean.userName}"/>
+                                <p:inputText placeholder="Username" id = "username" value="#{account.signupUserName}"/>
                             </div>
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">Password : </i></span>
-                                <p:inputText placeholder="Password" id = "password" value="#{userBean.password}" />
+                                <p:inputText placeholder="Password" id = "password" value="#{account.signupPassword}" />
                             </div>
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="fa fa-user">E-Mail : </i></span>
-                                <p:inputText placeholder="E-mail" id = "email" value="#{userBean.eMail}" />
+                                <p:inputText placeholder="E-mail" id = "email" value="#{account.signupEmail}" />
                             </div>
                             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                                <p:selectOneRadio id="console" value="#{userBean.userType}">
+                                <p:selectOneRadio id="console" value="#{account.userType}">
                                     <f:selectItem itemLabel="I am a student" itemValue="I am a student" />
                                     <f:selectItem itemLabel="I am a supervisor" itemValue="I am a supervisor" />
                                     <f:selectItem itemLabel="I am in charge of a company" itemValue="I am in charge of a company" />

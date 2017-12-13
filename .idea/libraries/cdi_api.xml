@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cdi-api">
+    <CLASSES>
+      <root url="jar:///opt/glassfish5/glassfish/modules/cdi-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
