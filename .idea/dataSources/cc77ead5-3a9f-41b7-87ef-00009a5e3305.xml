@@ -15,37 +15,42 @@
     </schema>
     <table id="8" parent="2" name="UserDemo"/>
     <table id="9" parent="7" name="Account"/>
-    <column id="10" parent="8" name="username">
+    <table id="10" parent="7" name="UserIDGen"/>
+    <column id="11" parent="8" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="11" parent="8" name="postcode">
+    <column id="12" parent="8" name="postcode">
       <Position>2</Position>
       <DataType>varchar(9)|0</DataType>
     </column>
-    <column id="12" parent="9" name="userid">
+    <column id="13" parent="9" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="13" parent="9" name="username">
+    <column id="14" parent="9" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="14" parent="9" name="password">
+    <column id="15" parent="9" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="15" parent="9" name="email">
+    <column id="16" parent="9" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="16" parent="9" name="usertype">
+    <column id="17" parent="9" name="usertype">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="17" parent="9" name="phone">
+    <column id="18" parent="9" name="phone">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="19" parent="10" name="lastUserID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
     </column>
   </database-model>
 </dataSource>
