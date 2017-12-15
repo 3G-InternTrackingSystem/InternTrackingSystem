@@ -15,11 +15,12 @@ import java.util.logging.Logger;
 @Named( value = "account")
 @RequestScoped
 public class Account {
-    public static int USERTYPE_COMPANY = 0;
-    public static int USERTYPE_INTERN = 1;
-    public static int USERTYPE_SUPERVISOR = 2;
-    public static int USERTYPE_FREE_INTERN = 3;
-    public static int USERTYPE_FREE_SUPERVISOR = 4;
+    public static int USERTYPE_FREE_INTERN = 0;
+    public static int USERTYPE_FREE_SUPERVISOR = 1;
+    public static int USERTYPE_COMPANY = 2;
+    public static int USERTYPE_INTERN = 3;
+    public static int USERTYPE_SUPERVISOR = 4;
+
 
     private String userName;
     private String password;
@@ -32,7 +33,7 @@ public class Account {
     private String signupEmail;
 
     private String eMail;
-    private String userType;
+    private Integer userType;
     private int userID;
 
     public Account(){
@@ -63,13 +64,13 @@ public class Account {
         this.eMail = eMail;
     }
 
-    public String getUserType() {
+    public Integer getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
-        Logger.getLogger(getClass().getName()).info("Account: signUpUserName = " + signupUserName);
-        Logger.getLogger(getClass().getName()).info("Account: userType = " + userType);
+    public void setUserType(Integer userType) {
+        //Logger.getLogger(getClass().getName()).info("Account: signUpUserName = " + signupUserName);
+        //Logger.getLogger(getClass().getName()).info("Account: userType = " + userType);
         this.userType = userType;
     }
 
@@ -159,17 +160,30 @@ public class Account {
             Logger.getLogger(getClass().getName()).info( "Account: signupPassword = " + signupPassword);
             Logger.getLogger(getClass().getName()).info( "Account: signupEmail = " + signupEmail);
 
+            //TODO control whether all information is input (name, password, email, usertype)
+            //TODO also control no same username or same e-mail
 
             stmt = con.prepareStatement("INSERT INTO Account VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, ++curId); //For now, current id is just sequentally increasing
             stmt.setString(2, signupUserName);
             stmt.setString(3, signupPassword);
             stmt.setString(4, signupEmail);
-            stmt.setInt(5, 1);
+            stmt.setInt(5, userType);
             stmt.setString(6, ""); //Nothing initially
             int rows = stmt.executeUpdate();
 
             stmt.close();
+
+            //Return value according to user type User type
+            if( userType == USERTYPE_FREE_INTERN) {
+
+            }
+            else if ( userType == USERTYPE_FREE_SUPERVISOR) {
+
+            }
+            else if( userType == USERTYPE_COMPANY) {
+
+            }
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
