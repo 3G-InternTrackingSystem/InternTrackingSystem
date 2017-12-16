@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 //TODO implement( edit) it as a managed bean
 //TODO add annotation ApplicationScope
-//TODO migrate the methods from Connector class
+//TODO migrate the methods from util.Connector class
 
 @ApplicationScoped
 public class DatabaseConnection

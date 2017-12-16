@@ -1,10 +1,23 @@
+package bean;
+
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+
+
+@ManagedBean
+@RequestScoped
 public class Intern extends User {
 
     public static final String USER_TYPE_INTERN = "INTERN";
     // ATTRIBUTES
+    private String name;
     private String surname;
     private Date birthDate;
     private String universityName;
@@ -16,11 +29,11 @@ public class Intern extends User {
 
     public Intern(){  }
 
-    public Intern( String name, String surname, String userName,
+    public Intern( String name, String surname, String password, String userName,
                    String eMail, String phoneNumber, Date birthDate,
                    String universityName, String departmentName){
 
-        super(name, userName, eMail, phoneNumber, USER_TYPE_INTERN);
+        super(name, userName, password, eMail, phoneNumber, USER_TYPE_INTERN);
         this.surname = surname;
         this.birthDate = birthDate;
         this.universityName = universityName;
@@ -33,6 +46,15 @@ public class Intern extends User {
 
     // METHODS
     // Getter and setter methods
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSurname() {
         return surname;
     }

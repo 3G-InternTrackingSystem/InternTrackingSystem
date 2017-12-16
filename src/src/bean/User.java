@@ -1,3 +1,5 @@
+package bean;
+
 public class User {
 
     // ATTRIBUTES
@@ -6,14 +8,16 @@ public class User {
     private String phoneNumber;
     private String userType;
     private String userName;
+    private String password;
 
     // CONSTRUCTOR
     public User(){}
 
-    public User( String name, String userName, String eMail, String phoneNumber, String userType){
+    public User( String name, String userName, String password, String eMail, String phoneNumber, String userType){
         this.name = name;
         this.eMail = eMail;
         this.userName = userName;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.userType = userType;
     }
@@ -56,6 +60,13 @@ public class User {
         this.userName = userName;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
     // Other functional methods
 
 
