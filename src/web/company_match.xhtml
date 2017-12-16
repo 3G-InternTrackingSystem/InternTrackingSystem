@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+    <title> TrackIn</title>
+</h:head>
+<h:body>
+    <div id="page">
+        <div id="header-container">
+            <div id="header">
+                <ui:include src="header.xhtml"/>
+            </div>
+        </div>
+        <div id="menubar-container">
+            <div id="menubar">
+                <ui:insert name="loginControl">
+                </ui:insert>
+                <ui:insert name="navigation">
+                </ui:insert>
+            </div>
+        </div>
+        <div id="content-container">
+            <div id="content">
+                <ui:insert name="content" >
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+
+                        <p:outputLabel for="basic" value="Basic:" />
+
+                        <p:selectOneListbox id="basic" value="#{intern.name}">
+                            <f:selectItems value="#{company.ints}" var = "intern" itemLabel="#{intern.name}" itemValue="#{intern}" />
+                        </p:selectOneListbox>
+
+                        <p:outputLabel for="basic2" value="Basic:" />
+
+
+                        <p:selectOneListbox id="basic2" value="#{supervisor}">
+                            <f:selectItems value="#{company.sups}" var = "supervisor" itemLabel="#{supervisor.name}" itemValue="#{supervisor}" />
+                        </p:selectOneListbox>
+
+
+                    </h:panelGrid>
+                    <p:separator />
+
+                    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+
+                    <p:dialog header="Selected Values" modal="true" showEffect="fade" widgetVar="dlg" resizable="false">
+                        <p:panelGrid columns="2" id="display" columnClasses="label,output">
+                            <h:outputText value="Basic:" />
+                            <h:outputText value="#{selectOneView.option}" />
+
+                            <h:outputText value="Advanced:" />
+                            <h:outputText value="#{selectOneView.theme}" />
+                        </p:panelGrid>
+                    </p:dialog>
+                </ui:insert>
+            </div>
+        </div>
+        <div id="footer-container">
+            <div id="footer">
+                <ui:insert name="footer">
+                    <p>TrackIn is a project for Bilkent University Object-oriented Software Engineering course
+                        developed by Ali Semi YENIMOL, Muammer TAN, I. Kayacan KAYA, Eniselda TUSKU </p>
+                </ui:insert>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
