@@ -1,3 +1,8 @@
+import util.DatabaseConnection;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,6 +12,7 @@ public class Supervisor extends User {
     // ATTRIBUTES
     private String surname;
     private Date birthDate;
+    private int userID;
     private String graduationUni;
     private String uniDepartment;
     private String compDepartment;
@@ -30,12 +36,90 @@ public class Supervisor extends User {
         this.totalSpace = 0;
         this.internList = new ArrayList<Intern>();
         this.matched = false;
+
+
+        File a = new File("supervisor.db");
+        Boolean b = a.exists();
+        if(!b) {
+
+            Connection c = null;
+            Statement stmt = null;
+
+            try {
+                c = DatabaseConnection.getConnInst();
+
+                stmt = c.createStatement();
+                String sql = "CREATE TABLE AllSupervisors " +
+                        "(user_id INTEGER PRIMARY KEY      NOT NULL," +
+                        " username           TEXT    NOT NULL, " +
+                        " name               TEXT    NOT NULL, " +
+                        " surname            TEXT     NOT NULL, " +
+                        " department        TEXT    NOT NULL, " +
+                        " birthDate         DATE     NOT NULL, "+
+                        " graduationUni      TEXT     NOT NULL ," +
+                        " uniDepartment      TEXT	  NOT NULL ," ;
+
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (c != null) {
+                    c.close();
+                }
+
+
+            } catch ( Exception e ) {
+                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+                //System.exit(0);
+            }
+
+        }
     }
 
     // METHODS
     // Getter and setter methods
     public String getSurname() {
-        return surname;
+        String surname = "";
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT surname, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            String surnamee =  rs.getString("surname");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                surnamee =  rs.getString("surname");
+                if( idd == userID) {
+
+                    surname = surnamee;
+                    ca.commit();
+                    break;
+                }
+            }
+
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return surname; 	//gets the surname as a return value
+
+
     }
 
     public void setSurname(String surname) {
@@ -43,23 +127,134 @@ public class Supervisor extends User {
     }
 
     public Date getBirthDate() {
-        return birthDate;
+
+        Date birthDatee = null;
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT birthDate, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            Date birthDate =  rs.getDate("birthDate");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                birthDate =  rs.getDate("birthDate");
+                if( idd == userID) {
+
+                    birthDatee = birthDate;
+                    ca.commit();
+                    break;
+                }
+            }
+
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return birthDatee; 	//gets the graduationUni as a return value
     }
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
+
+
     public String getGraduationUni() {
-        return graduationUni;
+
+        String graduationUnii = "";
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT graduationUni, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            String graduationUni =  rs.getString("graduationUni");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                graduationUni =  rs.getString("graduationUni");
+                if( idd == userID) {
+
+                    graduationUnii = graduationUni;
+                    ca.commit();
+                    break;
+                }
+            }
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return graduationUnii; 	//gets the graduationUni as a return value
     }
 
     public void setGraduationUni(String graduationUni) {
         this.graduationUni = graduationUni;
     }
 
+
     public String getUniDepartment() {
-        return uniDepartment;
+
+        String uniDepartmentt = "";
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT uniDepartment, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            String uniDepartment =  rs.getString("uniDepartment");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                uniDepartment =  rs.getString("uniDepartment");
+                if( idd == userID) {
+
+                    uniDepartmentt = uniDepartment;
+                    ca.commit();
+                    break;
+                }
+            }
+
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return uniDepartmentt;
+
     }
 
     public void setUniDepartment(String uniDepartment) {
@@ -67,7 +262,43 @@ public class Supervisor extends User {
     }
 
     public String getCompDepartment() {
-        return compDepartment;
+
+        String departmentt = "";
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT department, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            String department =  rs.getString("department");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                department =  rs.getString("department");
+                if( idd == userID) {
+
+                    departmentt = department;
+                    ca.commit();
+                    break;
+                }
+            }
+
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return departmentt;
     }
 
     public void setCompDepartment(String compDepartment) {
