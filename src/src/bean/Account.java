@@ -4,6 +4,10 @@ import sun.rmi.runtime.Log;
 import util.DatabaseConnection;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -109,33 +113,42 @@ public class Account {
     //TODO return string
     public void loginUser(){
         Logger.getLogger(getClass().getName()).info("bean.Account: username is " + userName);
-        //Logger.getLogger(getClass().getName()).info( getClass().getName() );
 
         //Get connection
-        /*
         try {
 
             Connection con = DatabaseConnection.getConnInst();
 
             //The code below is just a sample, not the correct operation, no insert!
             //TODO adjust the code below
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO Account VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setInt(1, 0);
-            stmt.setString(2, userName);
-            stmt.setString(3, password);
-            stmt.setString(4, "example@example.com");
-            stmt.setInt(5, 1);
-            stmt.setString(6, "123456789");
-            int rows = stmt.executeUpdate();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Account WHERE username = '"
+                    + userName + "' AND password = '" + password+ "';");
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while( resultSet.next() ) {
+                Logger.getLogger(getClass().getName()).info("Account: login: resultSet.next() while loop");
+                userType = resultSet.getInt("usertype");
+                eMail = resultSet.getString("email");
+                userID = resultSet.getInt("userid");
+            }
+
+            if( userType != null) {
+                    //TODO return according to user type
+                    Logger.getLogger(getClass().getName() ).info("Account: userType is "+ userType);
+
+            }
+            else {
+                Logger.getLogger(getClass().getName() ).info("Account: no user found");
+                //TODO return invalid credentials
+            }
 
             stmt.close();
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
+            //TODO return error
         }
-        */
-
-        //TODO Get the other information, email, usertype, userid
     }
 
     public void signUp() {
@@ -174,7 +187,7 @@ public class Account {
 
             stmt.close();
 
-            //Return value according to user type User type
+            //TODO Return value according to user type User type
             if( userType == USERTYPE_FREE_INTERN) {
 
             }
@@ -187,6 +200,70 @@ public class Account {
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
+            //TODO return error
         }
     }
+
+    public void validateName(FacesContext context, UIComponent component, Object value) {
+        String nameToCheck = (String) value;
+        try {
+            Connection con = DatabaseConnection.getConnInst();
+
+            //The code below is just a sample, not the correct operation, no insert!
+
+            //Getting the last index no as user id
+            PreparedStatement stmt = con.prepareStatement("SELECT userid FROM Account WHERE username = '" + nameToCheck + "';");
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                Logger.getLogger(getClass().getName() ).info("AccountValidator: user is already in the db");
+
+                context.addMessage(component.getClientId(), new FacesMessage("This user name is already used!"));
+                context.validationFailed();
+                ((UIInput) component).setValid(false);
+            }
+
+            stmt.close();
+        }catch (SQLException ex) {
+            Logger.getLogger(getClass().getName() ).info("AccountValidator: SQL Exception " + ex.getMessage());
+        }
+    }
+
+    public void validateEmail(FacesContext context, UIComponent component, Object value) {
+        String nameToCheck = (String) value;
+        try {
+            Connection con = DatabaseConnection.getConnInst();
+
+            //The code below is just a sample, not the correct operation, no insert!
+
+            //Getting the last index no as user id
+            PreparedStatement stmt = con.prepareStatement("SELECT userid FROM Account WHERE email = '" + nameToCheck + "';");
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                Logger.getLogger(getClass().getName() ).info("AccountValidator: user is already in the db");
+
+                context.addMessage(component.getClientId(), new FacesMessage("This e-mail is already used!"));
+                context.validationFailed();
+                ((UIInput) component).setValid(false);
+            }
+
+            stmt.close();
+        }catch (SQLException ex) {
+            Logger.getLogger(getClass().getName() ).info("AccountValidator: SQL Exception " + ex.getMessage());
+        }
+    }
+
+    public void validateUserType(FacesContext context, UIComponent component, Object value) {
+        String nameToCheck = (String) value;
+
+        if( value == null) {
+            Logger.getLogger(getClass().getName()).info("AccountValidator: No user type");
+
+            context.addMessage(component.getClientId(), new FacesMessage("This e-mail is already used!"));
+            context.validationFailed();
+            ((UIInput) component).setValid(false);
+        }
+    }
+
+
+
 }
