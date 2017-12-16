@@ -1,4 +1,4 @@
-package bean;
+package TaskManagement;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -36,15 +36,15 @@ public class Task {
                 stmt = c.createStatement();
                 String sql = "CREATE TABLE AllTasks " +
                         "(task_id INTEGER PRIMARY KEY      NOT NULL," +
-                        " given_by           VARCHAR(45)   UNIQUE, " +
-                        " given_to           VARCHAR(45)    NOT NULL, " +
-                        " type               VARCHAR(45)     NOT NULL, " +
-                        " description        VARCHAR(45)    NOT NULL, " +
+                        " given_by           TEXT    UNIQUE, " +
+                        " given_to           TEXT    NOT NULL, " +
+                        " type               TEXT     NOT NULL, " +
+                        " description        TEXT    NOT NULL, " +
                         " start_date         DATE     NOT NULL, "+
                         " end_date           DATE     NOT NULL ," +
                         " status             INT	  NOT NULL ," +
-                        " checked            INT	  NOT NULL ," +
-                        " doc_address        VARCHAR(45)     NOT NULL ";
+                        " checked             INT	  NOT NULL ," +
+                        " doc_address        TEXT     NOT NULL ";
 
                 stmt.executeUpdate(sql);
                 stmt.close();

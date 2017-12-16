@@ -1,4 +1,4 @@
-package bean;
+package Internship;
 
 import util.DatabaseConnection;
 import java.io.File;
@@ -7,19 +7,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import TaskManagement.Task;
 
-import javax.faces.bean.ManagedBean;
-import javax.enterprise.context.RequestScoped;
-
-@ManagedBean
-@RequestScoped
 
 public class Supervisor extends User {
 
     public static final String USER_TYPE_SUPERVISOR = "SUPERVISOR";
     // ATTRIBUTES
-
-    private String name;
     private String surname;
     private Date birthDate;
     private int userID;
@@ -32,12 +26,12 @@ public class Supervisor extends User {
     private boolean matched;
 
     // CONSTRUCTORS
-    public Supervisor( String name, String surname, String password, String userName,
+    public Supervisor( String name, String surname, String userName,
                        String eMail, String phoneNumber, Date birthDate,
                        String graduationUni, String uniDepartment,
                        String compDepartment){
 
-        super(name, userName, password, eMail, phoneNumber, USER_TYPE_SUPERVISOR);
+        super(name, userName, eMail, phoneNumber, USER_TYPE_SUPERVISOR);
         this.surname = surname;
         this.birthDate = birthDate;
         this.graduationUni = graduationUni;
@@ -61,13 +55,13 @@ public class Supervisor extends User {
                 stmt = c.createStatement();
                 String sql = "CREATE TABLE AllSupervisors " +
                         "(user_id INTEGER PRIMARY KEY      NOT NULL," +
-                        " username           VARCHAR(45)    NOT NULL, " +
-                        " name               VARCHAR(45)    NOT NULL, " +
-                        " surname            VARCHAR(45)     NOT NULL, " +
-                        " department        VARCHAR(45)    NOT NULL, " +
+                        " username           TEXT    NOT NULL, " +
+                        " name               TEXT    NOT NULL, " +
+                        " surname            TEXT     NOT NULL, " +
+                        " department        TEXT    NOT NULL, " +
                         " birthDate         DATE     NOT NULL, "+
-                        " graduationUni      VARCHAR(45)     NOT NULL ," +
-                        " uniDepartment      VARCHAR(45)	  NOT NULL );" ;
+                        " graduationUni      TEXT     NOT NULL ," +
+                        " uniDepartment      TEXT	  NOT NULL ," ;
 
 
                 stmt.executeUpdate(sql);
@@ -88,17 +82,9 @@ public class Supervisor extends User {
 
         }
     }
-    public Supervisor(){}
 
     // METHODS
     // Getter and setter methods
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
     public String getSurname() {
         String surname = "";
 
@@ -389,7 +375,7 @@ public class Supervisor extends User {
         return false;
     }
 
-    public boolean addTask(Team team, Task task){
+    public boolean addTask( Team team, Task task){
         for ( Team t : teamList){
             if( t.getName().equals(team.getName())){
                 t.addTeamTask(task);
@@ -400,49 +386,5 @@ public class Supervisor extends User {
     }
 
 
-    public static class Team  {
 
-        // ATTRIBUTES
-        private String name;
-        private int noOfInterns;
-        private ArrayList<Intern> internList;
-        private ArrayList<Task> taskList;
-
-        // CONSTRUCTORS
-        public Team( String name, int noOfInterns){
-            this.name = name;
-            this.noOfInterns = noOfInterns;
-            this.internList = new ArrayList<Intern>();
-        }
-
-        // METHODS
-        // Getter and setter methods
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getNoOfInterns() {
-            return noOfInterns;
-        }
-
-        public void setNoOfInterns(int noOfInterns) {
-            this.noOfInterns = noOfInterns;
-        }
-
-        public ArrayList<Intern> getInternList() {
-            return internList;
-        }
-
-        public void setInternList(ArrayList<Intern> internList) {
-            this.internList = internList;
-        }
-
-        public void addTeamTask( Task task){
-            this.taskList.add( task);
-        }
-    }
 }

@@ -11,53 +11,41 @@
 </h:head>
 <h:body>
     <ui:composition template="layout.xhtml">
+        <ui:define name="navigation">
+
+        </ui:define>
         <ui:define name="content">
             <h:form id="profile">
-                <p:tabView>
-                    <p:tab title="Profile">
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Name: </i></span>
-                                <p:inputText placeholder="" id = "nameIntern" value="#{internship.intern.name}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Surname : </i></span>
-                                <p:inputText placeholder="" id = "surnameIntern" value="#{internship.intern.surname}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Username : </i></span>
-                                <p:inputText placeholder="" id = "usernameIntern" value="#{internship.intern.userName}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">University : </i></span>
-                                <p:inputText placeholder="" id = "universityIntern" value="#{internship.intern.universityName}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">bean.Department : </i></span>
-                                <p:inputText placeholder="" id = "departmentIntern" value="#{internship.intern.departmentName}"/>
-                            </div>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="fa fa-user">Name: </i></span>
+                        <p:inputText placeholder="" id = "nameIntern" value="#{internship.intern.name}"/>
+                    </div>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="fa fa-user">Surname : </i></span>
+                        <p:inputText placeholder="" id = "surnameIntern" value="#{internship.intern.surname}"/>
+                    </div>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="fa fa-user">Username : </i></span>
+                        <p:inputText placeholder="" id = "usernameIntern" value="#{internship.intern.userName}"/>
+                    </div>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="fa fa-user">University : </i></span>
+                        <p:inputText placeholder="" id = "universityIntern" value="#{internship.intern.universityName}"/>
+                    </div>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="fa fa-user">Department : </i></span>
+                        <p:inputText placeholder="" id = "departmentIntern" value="#{internship.intern.departmentName}"/>
+                    </div>
+                </h:panelGrid>
 
-                        </h:panelGrid>
-                    </p:tab>
-
-                    <p:tab title="Log out">
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">bean.User Name: </i></span>
-                                <p:inputText placeholder="Username" id = "usernameLogin" value="#{account.userName}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Password : </i></span>
-                                <p:inputText placeholder="Password" id = "passwordLogin" value="#{account.password}" />
-                            </div>
-                            <f:facet name = "footer">
-                                <h:panelGroup style = "display:block; text-align:center">
-                                    <h:commandButton id = "login" value = "Login" actionListener="#{account.loginUser}" ajax="false" />
-                                </h:panelGroup>
-                            </f:facet>
-                        </h:panelGrid>
-                    </p:tab>
-                </p:tabView>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <f:facet name = "footer">
+                        <h:panelGroup style = "display:block; text-align:center">
+                            <h:commandButton id = "writeInternData" value = "Create Profile" actionListener="#{internship.createIntern()}" ajax="false" />
+                        </h:panelGroup>
+                    </f:facet>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

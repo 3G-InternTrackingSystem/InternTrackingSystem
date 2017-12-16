@@ -1,14 +1,11 @@
-package bean;
+package Internship;
 
 import java.util.ArrayList;
 import java.util.Date;
+import TaskManagement.*;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 
 
 @ManagedBean
@@ -29,11 +26,11 @@ public class Intern extends User {
 
     public Intern(){  }
 
-    public Intern( String name, String surname, String password, String userName,
+    public Intern( String name, String surname, String userName,
                    String eMail, String phoneNumber, Date birthDate,
                    String universityName, String departmentName){
 
-        super(name, userName, password, eMail, phoneNumber, USER_TYPE_INTERN);
+        super(name, userName, eMail, phoneNumber, USER_TYPE_INTERN);
         this.surname = surname;
         this.birthDate = birthDate;
         this.universityName = universityName;

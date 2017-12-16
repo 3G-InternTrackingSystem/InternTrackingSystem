@@ -1,4 +1,4 @@
-package bean;
+package Internship;
 
 import util.Connector;
 import javax.faces.bean.ManagedBean;
@@ -34,9 +34,9 @@ public class Company extends User {
     private ArrayList<Intern> ints;
     private ArrayList<Supervisor> sups;
     // CONSTRUCTORS
-    public Company(String name, String userName, String password, String eMail, String phoneNumber, String address, String companyDescription) {
+    public Company(String name, String userName, String eMail, String phoneNumber, String address, String companyDescription) {
 
-        super(name, userName, password, eMail, phoneNumber, USER_TYPE_COMPANY);
+        super(name, userName, eMail, phoneNumber, USER_TYPE_COMPANY);
         this.address = address;
         this.departments = new ArrayList<Department>();
         this.companyDescription = companyDescription;
@@ -45,7 +45,6 @@ public class Company extends User {
             connection = connector.getConnection1();
             PreparedStatement pStat = connection.prepareStatement("INSERT INTO account VALUES(?,?,?,?,?,?)");
             pStat.setString(2,userName);
-            pStat.setString(3,password);
             pStat.setString(4,eMail);
             pStat.setString(5,USER_TYPE_COMPANY);
             pStat.setString(6,phoneNumber);

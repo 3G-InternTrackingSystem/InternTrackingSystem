@@ -1,4 +1,4 @@
-package bean;
+package Internship;
 
 import java.util.ArrayList;
 
