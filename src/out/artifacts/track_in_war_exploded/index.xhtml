@@ -13,106 +13,59 @@
     <ui:composition template="layout.xhtml">
         <ui:define name="content">
             <h:form id="loginform">
-                <p:tabView>
-                    <p:tab title="Login">
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">User Name: </i></span>
-                                <p:inputText placeholder="Username" id = "usernameLogin" value="#{account.userName}"/>
-                            </div>
-                            <div class="ui-inputgroup">
-                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Password : </i></span>
-                                <p:inputText placeholder="Password" id = "passwordLogin" value="#{account.password}" />
-                            </div>
-                            <f:facet name = "footer">
-                                <h:panelGroup style = "display:block; text-align:center">
-                                    <h:commandButton id = "login" value = "Login" actionListener="#{account.loginUser}" ajax="false" />
-                                </h:panelGroup>
-                            </f:facet>
-                        </h:panelGrid>
-                    </p:tab>
-                    <p:tab title="Signup">
-                        <div class="ui-g">
-                            <div class= "ui-g-2">
-                                <h:outputLabel for="sUsername" value="User name: " style="font-weight:bold"/>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:inputText placeholder="Username"
-                                             id = "sUsername"
-                                             value="#{account.signupUserName}"
-                                             required="true"
-                                             requiredMessage="User name is required"
-                                             maxlength="25">
-                                </p:inputText>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:message for="sUsername"> </p:message>
-                            </div>
+                    <div class="ui-g">
+                        <div class="ui-g-2">
+                            <h:outputLabel for="usernameLogin" value="User name: " style="font-weight:bold"/>
                         </div>
 
-                        <div class="ui-g">
-                            <div class= "ui-g-2">
-                                <h:outputLabel for="sPassword" value="Password: " style="font-weight: bold"/>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:inputText placeholder="Password"
-                                             id = "sPassword"
-                                             value="#{account.signupPassword}"
-                                             required="true"
-                                             requiredMessage="Password is required"
-                                             maxlength="25">
-                                </p:inputText>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:message for="sPassword" />
-                            </div>
+                        <div class="ui-g-2">
+                            <p:inputText placeholder="Username"
+                                         id = "usernameLogin"
+                                         value="#{account.userName}"
+                                         required="true"
+                                         requiredMessage="User name is required"
+                            />
                         </div>
 
-                        <div class="ui-g">
-                            <div class= "ui-g-2">
-                                <h:outputLabel for="sEmail" value="Email: " style="font-weight: bold"/>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:inputText placeholder="E-mail"
-                                             id = "sEmail"
-                                             value="#{account.signupEmail}"
-                                             required="true"
-                                             requiredMessage="E mail is required"
-                                             maxlength="25">
-                                </p:inputText>
-                            </div>
-                            <div class = "ui-g-2">
-                                <p:message for="sEmail" />
-                            </div>
+                        <div class="ui-g-2">
+                            <p:message for="usernameLogin"> </p:message>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-2">
+                            <h:outputLabel for="passwordLogin" value="Password: " style="font-weight: bold"/>
                         </div>
 
+                        <div class="ui-g-2">
+                            <p:inputText placeholder="Password"
+                                         id = "passwordLogin"
+                                         value="#{account.password}"
+                                         required="true"
+                                         requiredMessage="Password is required"
+                            />
+                        </div>
 
-                        <h:panelGrid cellpadding="10">
-                            <p:row>
-                                <p:selectOneRadio id="console"
-                                                  value="#{account.userType}"
-                                                  required="true"
-                                                  requiredMessage="Please specify what type of user you are!" >
-                                    <f:selectItem itemLabel="I am a student" itemValue="0" />
-                                    <f:selectItem itemLabel="I am a supervisor" itemValue="1" />
-                                    <f:selectItem itemLabel="I am in charge of a company" itemValue="2" />
-                                </p:selectOneRadio>
-                                <p:message for="console"/>
-                            </p:row>
-
-                            <f:facet name = "footer">
-                                <h:panelGroup style = "display:block; text-align:center">
-                                    <p:commandButton id = "signUp"
-                                                     value = "Sign Up"
-                                                     actionListener="#{account.signUp}"
-                                                     ajax="false"
-                                                     validateClient="true"
-                                    />
-                                </h:panelGroup>
-                            </f:facet>
-                        </h:panelGrid>
-                    </p:tab>
-                </p:tabView>
+                        <div class="ui-g-2">
+                            <p:message for="passwordLogin"> </p:message>
+                        </div>
+                    </div>
+                    <f:facet name = "footer">
+                        <h:panelGroup style = "display:block; text-align:center">
+                            <p:commandButton
+                                    id = "login"
+                                    value = "Login"
+                                    actionListener="#{account.loginUser}"
+                                    validateClient ="true"
+                                    ajax="false" />
+                        </h:panelGroup>
+                    </f:facet>
+            </h:form>
+            <h:form>
+                <p>Or Signup</p>
+                <h:commandButton
+                        value="SignUp"
+                        action="signUp"
+                />
             </h:form>
         </ui:define>
     </ui:composition>
