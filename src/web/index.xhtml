@@ -44,7 +44,7 @@
                                             <p:commandButton
                                                     id = "login"
                                                     value = "Login"
-                                                    actionListener="#{account.loginUser}"
+                                                    action="#{account.loginUser}"
                                                     process="usernameLogin passwordLogin"
                                                     validateClient ="true"
                                                     style="margin-right:10px"
@@ -113,7 +113,7 @@
                                         <h:panelGroup style = "display:block; text-align:center">
                                             <p:commandButton id = "signUp"
                                                              value = "Sign Up"
-                                                             actionListener="#{account.signUp}"
+                                                             action="#{account.signUp}"
                                                              process="sUsername sPassword sEmail"
                                                              validateClient ="true"
                                                              style="margin-right:10px"

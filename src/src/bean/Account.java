@@ -110,17 +110,13 @@ public class Account {
         this.signupEmail = signupEmail;
     }
 
-    //TODO return string
-    public void loginUser(){
+    public String loginUser(){
         Logger.getLogger(getClass().getName()).info("bean.Account: username is " + userName);
 
         //Get connection
         try {
 
             Connection con = DatabaseConnection.getConnInst();
-
-            //The code below is just a sample, not the correct operation, no insert!
-            //TODO adjust the code below
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Account WHERE username = '"
                     + userName + "' AND password = '" + password+ "';");
 
@@ -133,25 +129,44 @@ public class Account {
                 userID = resultSet.getInt("userid");
             }
 
-            if( userType != null) {
-                    //TODO return according to user type
-                    Logger.getLogger(getClass().getName() ).info("Account: userType is "+ userType);
+            stmt.close();
 
+            if( userType == null) {
+                Logger.getLogger(getClass().getName() ).info("Account: no user found");
+                return "invalid-credentials";
             }
             else {
-                Logger.getLogger(getClass().getName() ).info("Account: no user found");
-                //TODO return invalid credentials
-            }
+                Logger.getLogger(getClass().getName() ).info("Account: userType is "+ userType);
 
-            stmt.close();
+                if( userType == USERTYPE_INTERN){
+                    return "signInIntern";
+                }
+                else if(userType == USERTYPE_FREE_INTERN) {
+                    return "signInFreeIntern";
+                }
+                else if(userType == USERTYPE_SUPERVISOR) {
+                    return "signInSupervisor";
+                }
+                else if(userType == USERTYPE_FREE_SUPERVISOR) {
+                    Logger.getLogger(getClass().getName() ).info("Account, signInFreeSupervisor");
+                    return "signInFreeSupervisor";
+                }
+                else if(userType == USERTYPE_COMPANY) {
+                    return "signInCompany";
+
+                }
+                return "error";
+            }
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
-            //TODO return error
+            return "error";
         }
     }
 
-    public void signUp() {
+
+
+    public String signUp() {
         //Get connection
         try {
             Connection con = DatabaseConnection.getConnInst();
@@ -173,9 +188,6 @@ public class Account {
             Logger.getLogger(getClass().getName()).info( "Account: signupPassword = " + signupPassword);
             Logger.getLogger(getClass().getName()).info( "Account: signupEmail = " + signupEmail);
 
-            //TODO control whether all information is input (name, password, email, usertype)
-            //TODO also control no same username or same e-mail
-
             stmt = con.prepareStatement("INSERT INTO Account VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, ++curId); //For now, current id is just sequentally increasing
             stmt.setString(2, signupUserName);
@@ -187,20 +199,21 @@ public class Account {
 
             stmt.close();
 
-            //TODO Return value according to user type User type
-            if( userType == USERTYPE_FREE_INTERN) {
 
+            if( userType == USERTYPE_FREE_INTERN) {
+                return "signUpIntern";
             }
             else if ( userType == USERTYPE_FREE_SUPERVISOR) {
-
+                return "signUpSupervisor";
             }
             else if( userType == USERTYPE_COMPANY) {
-
+                return "signUpCompany";
             }
+            return "error";
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
-            //TODO return error
+            return "error";
         }
     }
 
