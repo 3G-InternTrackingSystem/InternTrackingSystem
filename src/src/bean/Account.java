@@ -1,14 +1,17 @@
 package bean;
 
+import org.primefaces.context.RequestContext;
 import sun.rmi.runtime.Log;
 import util.DatabaseConnection;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +20,8 @@ import java.util.logging.Logger;
 
 
 @Named( value = "account")
-@RequestScoped
-public class Account {
+@SessionScoped
+public class Account implements Serializable {
     public static int USERTYPE_FREE_INTERN = 0;
     public static int USERTYPE_FREE_SUPERVISOR = 1;
     public static int USERTYPE_COMPANY = 2;
@@ -28,6 +31,7 @@ public class Account {
 
     private String userName;
     private String password;
+    private String invitationKey;
 
     //These are needed for the signup part, otherwise if we use the same properties
     //there occurs ambiguity
@@ -277,6 +281,27 @@ public class Account {
         }
     }
 
+    //TODO this method should be a method of Internship class
+    public void compareInvitationKey() {
+        Logger.getLogger(getClass().getName() ).info("Account, deneme");
 
+        RequestContext context = RequestContext.getCurrentInstance();
+        FacesMessage message = null;
+        boolean loggedIn = false;
 
+        //TODO get the companies unique key and do the comparison
+        //For now just a sample is done
+        String sampleKey = "xyz_123";
+
+        if(invitationKey != null && invitationKey.equals(sampleKey) ) {
+            loggedIn = true;
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "You are Accepted", invitationKey);
+        } else {
+            loggedIn = false;
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Invalid invitation key");
+        }
+
+        FacesContext.getCurrentInstance().addMessage(null, message);
+        context.addCallbackParam("loggedIn", loggedIn);
+    }
 }
