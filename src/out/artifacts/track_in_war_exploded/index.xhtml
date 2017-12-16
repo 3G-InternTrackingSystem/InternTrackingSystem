@@ -33,22 +33,21 @@
                     </p:tab>
                     <p:tab title="Signup">
                         <div class="ui-g">
-                                <div class= "ui-g-2">
-                                    <h:outputLabel for="sUsername" value="User name: " style="font-weight:bold"/>
-                                </div>
-                                <div class = "ui-g-2">
-                                    <p:inputText placeholder="Username"
-                                                 id = "sUsername"
-                                                 value="#{account.signupUserName}"
-                                                 required="true"
-                                                 requiredMessage="User name is required"
-                                                 maxlength="15">
-                                        <f:validator validatorId="accountValidator"/>
-                                    </p:inputText>
-                                </div>
-                                <div class = "ui-g-2">
-                                    <p:message for="sUsername"> </p:message>
-                                </div>
+                            <div class= "ui-g-2">
+                                <h:outputLabel for="sUsername" value="User name: " style="font-weight:bold"/>
+                            </div>
+                            <div class = "ui-g-2">
+                                <p:inputText placeholder="Username"
+                                             id = "sUsername"
+                                             value="#{account.signupUserName}"
+                                             required="true"
+                                             requiredMessage="User name is required"
+                                             maxlength="25">
+                                </p:inputText>
+                            </div>
+                            <div class = "ui-g-2">
+                                <p:message for="sUsername"> </p:message>
+                            </div>
                         </div>
 
                         <div class="ui-g">
@@ -80,7 +79,6 @@
                                              required="true"
                                              requiredMessage="E mail is required"
                                              maxlength="25">
-                                    <f:validator validatorId="accountValidator"/>
                                 </p:inputText>
                             </div>
                             <div class = "ui-g-2">
