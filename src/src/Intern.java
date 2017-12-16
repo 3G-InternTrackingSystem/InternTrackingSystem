@@ -13,6 +13,9 @@ public class Intern extends User {
     private boolean matched;
 
     // CONSTRUCTORS
+
+    public Intern(){  }
+
     public Intern( String name, String surname, String userName,
                    String eMail, String phoneNumber, Date birthDate,
                    String universityName, String departmentName){
@@ -25,6 +28,8 @@ public class Intern extends User {
         this.tasks = new ArrayList<Task>();
         this.matched = false;
     }
+
+
 
     // METHODS
     // Getter and setter methods
@@ -81,4 +86,5 @@ public class Intern extends User {
         this.tasks.add(task);
     }
 
+    public String setTest(){ return "test";}
 }

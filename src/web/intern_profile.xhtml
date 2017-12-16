@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"  xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title> TrackIn</title>
+</h:head>
+<h:body>
+    <ui:composition template="layout.xhtml">
+        <ui:define name="content">
+            <h:form id="profile">
+                <p:tabView>
+                    <p:tab title="Profile">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Name: </i></span>
+                                <h:outputText value="#{internship.getInternName()}"/>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Surname : </i></span>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Email : </i></span>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Username : </i></span>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">University : </i></span>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Department : </i></span>
+                            </div>
+
+                        </h:panelGrid>
+                    </p:tab>
+
+                    <p:tab title="Log out">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">User Name: </i></span>
+                                <p:inputText placeholder="Username" id = "usernameLogin" value="#{account.userName}"/>
+                            </div>
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user">Password : </i></span>
+                                <p:inputText placeholder="Password" id = "passwordLogin" value="#{account.password}" />
+                            </div>
+                            <f:facet name = "footer">
+                                <h:panelGroup style = "display:block; text-align:center">
+                                    <h:commandButton id = "login" value = "Login" actionListener="#{account.loginUser}" ajax="false" />
+                                </h:panelGroup>
+                            </f:facet>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

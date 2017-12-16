@@ -1,12 +1,9 @@
 package bean;
 
+import sun.rmi.runtime.Log;
 import util.DatabaseConnection;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -190,60 +187,6 @@ public class Account {
 
         }catch (SQLException ex) {
             Logger.getLogger(getClass().getName()).warning("SQLException: " + ex.getMessage());
-        }
-    }
-
-    public void validateSUserName(FacesContext context, UIComponent component, Object value) {
-        String nameToCheck = (String) value;
-
-        //Get connection
-        try {
-            Connection con = DatabaseConnection.getConnInst();
-
-            //Getting the last index no as user id
-            PreparedStatement stmt = con.prepareStatement("SELECT userid FROM Account WHERE username = '" + nameToCheck + "';");
-            ResultSet resultSet = stmt.executeQuery();
-            if (resultSet.next() ) {
-                ((UIInput) component).setValid(false);
-                context.addMessage(component.getClientId(), new FacesMessage("This username is already used!"));
-                Logger.getLogger(getClass().getName()).info( "Account Validation: Same user id");
-            }
-
-            stmt.close();
-
-        }catch (SQLException ex) {
-            Logger.getLogger(getClass().getName()).warning("Account: SQLException: " + ex.getMessage());
-        }
-    }
-
-    public void validateSEmail(FacesContext context, UIComponent component, Object value) {
-        String nameToCheck = (String) value;
-
-        //Get connection
-        try {
-            Connection con = DatabaseConnection.getConnInst();
-
-            //Getting the last index no as user id
-            PreparedStatement stmt = con.prepareStatement("SELECT userid FROM Account WHERE email = '" + nameToCheck + "';");
-            ResultSet resultSet = stmt.executeQuery();
-            if (resultSet.next()) {
-                ((UIInput) component).setValid(false);
-                context.addMessage(component.getClientId(), new FacesMessage("This e-mail is already used!"));
-                Logger.getLogger(getClass().getName()).info("Account Validation: Same user e-mail");
-            }
-
-            stmt.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(getClass().getName()).warning("Account: SQLException: " + ex.getMessage());
-        }
-    }
-
-    public void validateSUserType( FacesContext context, UIComponent component, Object value) {
-        if( value == null) {
-            ((UIInput) component).setValid(false);
-            context.addMessage(component.getClientId(), new FacesMessage("User type must be selected!"));
-            Logger.getLogger(getClass().getName()).info("Account Validation: No user type");
         }
     }
 }
