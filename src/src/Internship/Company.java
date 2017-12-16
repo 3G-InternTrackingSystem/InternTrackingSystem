@@ -19,8 +19,6 @@ import java.sql.SQLException;
 
 
 
-@ManagedBean
-@RequestScoped
 public class Company extends User {
     Connector connector;
     Connection connection;

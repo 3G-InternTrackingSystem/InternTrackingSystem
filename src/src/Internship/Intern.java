@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import TaskManagement.*;
 
-import javax.faces.bean.ManagedBean;
-import javax.enterprise.context.RequestScoped;
-
-
-@ManagedBean
-@RequestScoped
 public class Intern extends User {
 
     public static final String USER_TYPE_INTERN = "INTERN";
