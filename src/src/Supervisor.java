@@ -1,8 +1,6 @@
 import util.DatabaseConnection;
-
 import java.io.File;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -129,7 +127,43 @@ public class Supervisor extends User {
     }
 
     public Date getBirthDate() {
-        return birthDate;
+
+        Date birthDatee = null;
+
+        Connection ca = null;
+        Statement stmta = null;
+
+        try {
+            ca = DatabaseConnection.getConnInst();
+            ca.setAutoCommit(false);
+
+            stmta = ca.createStatement();
+            ResultSet rs = stmta.executeQuery( "SELECT birthDate, status FROM AllSupervisors;" );
+
+            int idd =  rs.getInt("user_id");
+            Date birthDate =  rs.getDate("birthDate");
+
+            while( rs.next()) {
+                idd = rs.getInt("user_id");
+                birthDate =  rs.getDate("birthDate");
+                if( idd == userID) {
+
+                    birthDatee = birthDate;
+                    ca.commit();
+                    break;
+                }
+            }
+
+
+            rs.close();
+            stmta.close();
+            ca.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            //System.exit(0);
+        }
+        return birthDatee; 	//gets the graduationUni as a return value
     }
 
     public void setBirthDate(Date birthDate) {
@@ -166,7 +200,6 @@ public class Supervisor extends User {
                 }
             }
 
-
             rs.close();
             stmta.close();
             ca.close();
@@ -178,11 +211,10 @@ public class Supervisor extends User {
         return graduationUnii; 	//gets the graduationUni as a return value
     }
 
-
-
     public void setGraduationUni(String graduationUni) {
         this.graduationUni = graduationUni;
     }
+
 
     public String getUniDepartment() {
 
