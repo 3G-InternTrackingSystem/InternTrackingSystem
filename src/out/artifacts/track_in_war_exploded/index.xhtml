@@ -30,12 +30,14 @@
                                     />
                                     <p:message for="usernameLogin"/>
 
-                                    <h:outputLabel for="passwordLogin" value="Password: " style="font-weight: bold"/>
-                                    <p:inputText placeholder="Password"
-                                                 id = "passwordLogin"
-                                                 value="#{account.password}"
-                                                 required="true"
-                                                 requiredMessage="Password is required"
+                                    <h:outputLabel for="passwordLogin" value="Password: " style="font-weight: bold" />
+                                    <p:password id="passwordLogin"
+                                                placeholder="Password"
+                                                label="Password"
+                                                value="#{account.password}"
+                                                required="true"
+                                                requiredMessage="Password is required"
+                                                maxlength="25"
                                     />
                                     <p:message for="passwordLogin"/>
 
@@ -71,16 +73,6 @@
                                     />
                                     <p:message for="sUsername"/>
 
-                                    <h:outputLabel for="sPassword" value="Password: " style="font-weight: bold"/>
-                                    <p:inputText placeholder="Password"
-                                                 id = "sPassword"
-                                                 value="#{account.signupPassword}"
-                                                 required="true"
-                                                 requiredMessage="Password is required"
-                                                 maxlength="25">
-                                    </p:inputText>
-                                    <p:message for="sPassword"/>
-
                                     <h:outputLabel for="sEmail" value="Email: " style="font-weight: bold"/>
                                     <p:inputText placeholder="E-mail"
                                                  id = "sEmail"
@@ -92,6 +84,28 @@
                                     />
                                     <p:message for="sEmail" />
 
+                                    <h:outputLabel for="sPassword" value="Password 1: " style="font-weight: bold" />
+                                    <p:password id="sPassword"
+                                                value="#{account.signupPassword}"
+                                                match="sPassword2"
+                                                label="Password 1"
+                                                required="true"
+                                                requiredMessage="Password is required"
+                                                maxlength="25"
+                                                validatorMessage="Password 1 should match password 2"
+                                                feedback="true"
+                                                placeholder="Password 1"
+                                    />
+                                    <p:message for="sPassword"/>
+
+                                    <h:outputLabel for="sPassword" value="Password 2: " style="font-weight: bold" />
+                                    <p:password id="sPassword2"
+                                                value="#{account.signupPassword}"
+                                                label="Password 2"
+                                                required="true"
+                                                placeholder="Password 2"
+                                    />
+                                    <p:message for="sPassword2"/>
                                 </h:panelGrid>
 
 

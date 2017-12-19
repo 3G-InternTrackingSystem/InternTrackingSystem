@@ -116,6 +116,7 @@ public class Account implements Serializable {
 
     public String loginUser(){
         Logger.getLogger(getClass().getName()).info("bean.Account: username is " + userName);
+        Logger.getLogger(getClass().getName()).info("bean.Account: password is " + password);
 
         //Get connection
         try {
@@ -202,7 +203,7 @@ public class Account implements Serializable {
             stmt.setInt(4, userType);
             stmt.setString(5, ""); //Nothing initially
             int rows = stmt.executeUpdate();
-            
+
 
             stmt.close();
 

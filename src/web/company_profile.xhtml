@@ -4,8 +4,98 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title> TrackIn</title>
+    <link href="resource/css/stylesheet.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+
+    <ui:composition template="layout.xhtml">
+        <ui:define name="navigation">
+            <div class="ui-g navigation-menu">
+                <div class="ui-g-2 navigation">
+                    <h:form>
+                        <p:button outcome="company_profile"
+                                  value="Intern List"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+                </div>
+                <div class="ui-g-3 navigation">
+                    <h:form>
+                        <p:button outcome="company_profile"
+                                  value="Supervisor List"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+
+                </div>
+                <div class="ui-g-2 navigation">
+                    <h:form>
+                        <p:button outcome="company_profile"
+                                  value="Events"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+
+                </div>
+                <div class="ui-g-2 navigation">
+                    <h:form>
+                        <p:button outcome="company_profile"
+                                  value="Match"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+
+                </div>
+                <div class="ui-g-2 navigation">
+                    <h:form>
+                        <p:button outcome="company_profile"
+                                  value="Profile"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+
+                </div>
+            </div>
+        </ui:define>
+
+        <ui:define name="loginControl">
+            <div class="ui-g">
+                <div class="ui-g-8"> </div>
+                <div class="ui-g-2"> </div>
+                <div class="ui-g-2">
+                    <h:form>
+                        <p:commandButton
+                                id = "login"
+                                value = "Log out"
+                                action="index"
+                                style="margin-right:10px"
+                                ajax="false"
+                        />
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+
+        <ui:define name="content">
+
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>
