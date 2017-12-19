@@ -121,14 +121,14 @@ public class Account implements Serializable {
         try {
 
             Connection con = DatabaseConnection.getConnInst();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Account WHERE username = '"
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM account WHERE username = '"
                     + userName + "' AND password = '" + password+ "';");
 
             ResultSet resultSet = stmt.executeQuery();
 
             while( resultSet.next() ) {
                 Logger.getLogger(getClass().getName()).info("Account: login: resultSet.next() while loop");
-                userType = resultSet.getInt("usertype");
+                userType = resultSet.getInt("type");
                 eMail = resultSet.getString("email");
                 userID = resultSet.getInt("userid");
             }
@@ -178,6 +178,7 @@ public class Account implements Serializable {
             //The code below is just a sample, not the correct operation, no insert!
 
             //Getting the last index no as user id
+            /*
             PreparedStatement stmt = con.prepareStatement("SELECT lastUserID FROM UserIDGen LIMIT 1");
             ResultSet resultSet = stmt.executeQuery();
             int curId = 0;
@@ -187,19 +188,21 @@ public class Account implements Serializable {
             //Logger.getLogger(getClass().getName()).info( "Account: current id is :" + curId);
 
             stmt.close();
+            */
 
             Logger.getLogger(getClass().getName()).info( "Account: signupUserName = " + signupUserName);
             Logger.getLogger(getClass().getName()).info( "Account: signupPassword = " + signupPassword);
             Logger.getLogger(getClass().getName()).info( "Account: signupEmail = " + signupEmail);
 
-            stmt = con.prepareStatement("INSERT INTO Account VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setInt(1, ++curId); //For now, current id is just sequentally increasing
-            stmt.setString(2, signupUserName);
-            stmt.setString(3, signupPassword);
-            stmt.setString(4, signupEmail);
-            stmt.setInt(5, userType);
-            stmt.setString(6, ""); //Nothing initially
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO account(username, password, email, type, phone) VALUES (?, ?, ?, ?, ?)");
+            //stmt.setInt(1, ++curId); //For now, current id is just sequentally increasing
+            stmt.setString(1, signupUserName);
+            stmt.setString(2, signupPassword);
+            stmt.setString(3, signupEmail);
+            stmt.setInt(4, userType);
+            stmt.setString(5, ""); //Nothing initially
             int rows = stmt.executeUpdate();
+            
 
             stmt.close();
 

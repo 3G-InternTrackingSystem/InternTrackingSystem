@@ -23,7 +23,7 @@ public class DatabaseConnection
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            dbConnect = DriverManager.getConnection("jdbc:mysql://localhost:3306/track_in", "root", "9659729804");
+            dbConnect = DriverManager.getConnection("jdbc:mysql://localhost:3306/track_in", "root", "jaja123");
             logger.info("DatabaseConnection: Connection is done");
         }
         catch (SQLException e)
@@ -57,7 +57,7 @@ public class DatabaseConnection
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                dbConnect = DriverManager.getConnection("jdbc:mysql://localhost:3306/track_in", "root", "9659729804");
+                dbConnect = DriverManager.getConnection("jdbc:mysql://localhost:3306/track_in", "root", "jaja123");
             }
             catch (SQLException e)
             {

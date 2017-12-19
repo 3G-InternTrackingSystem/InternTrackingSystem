@@ -21,12 +21,12 @@
                         <p:tab title="Login">
                             <h:form>
                                 <h:panelGrid id="grid" columns="3" cellpadding="5">
-                                    <h:outputLabel for="usernameLogin" value="Internship.User name: " style="font-weight: bold" />
+                                    <h:outputLabel for="usernameLogin" value="User name: " style="font-weight: bold" />
                                     <p:inputText placeholder="Username"
                                                  id = "usernameLogin"
                                                  value="#{account.userName}"
                                                  required="true"
-                                                 requiredMessage="Internship.User name is required"
+                                                 requiredMessage="User name is required"
                                     />
                                     <p:message for="usernameLogin"/>
 
@@ -60,12 +60,12 @@
                         <p:tab title="Signup">
                             <h:form id="signup">
                                 <h:panelGrid id="gridS" columns="3" cellpadding="5">
-                                    <h:outputLabel for="sUsername" value="Internship.User name: " style="font-weight:bold"/>
+                                    <h:outputLabel for="sUsername" value="User name: " style="font-weight:bold"/>
                                     <p:inputText placeholder="Username"
                                                  id = "sUsername"
                                                  value="#{account.signupUserName}"
                                                  required="true"
-                                                 requiredMessage="Internship.User name is required"
+                                                 requiredMessage="User name is required"
                                                  maxlength="25"
                                                  validator="#{account.validateName}"
                                     />
