@@ -21,436 +21,435 @@
     <table id="9" parent="6" name="UserDemo"/>
     <table id="10" parent="7" name="Account"/>
     <table id="11" parent="7" name="UserIDGen"/>
-    <table id="12" parent="8" name="UserIDGen"/>
-    <table id="13" parent="8" name="account"/>
-    <table id="14" parent="8" name="company"/>
-    <table id="15" parent="8" name="intern"/>
-    <table id="16" parent="8" name="internship"/>
-    <table id="17" parent="8" name="supervisor"/>
-    <table id="18" parent="8" name="tasks"/>
-    <table id="19" parent="8" name="team"/>
-    <column id="20" parent="9" name="username">
+    <table id="12" parent="8" name="account"/>
+    <table id="13" parent="8" name="company"/>
+    <table id="14" parent="8" name="intern"/>
+    <table id="15" parent="8" name="internship"/>
+    <table id="16" parent="8" name="supervisor"/>
+    <table id="17" parent="8" name="tasks"/>
+    <table id="18" parent="8" name="team"/>
+    <column id="19" parent="9" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="21" parent="9" name="postcode">
+    <column id="20" parent="9" name="postcode">
       <Position>2</Position>
       <DataType>varchar(9)|0</DataType>
     </column>
-    <column id="22" parent="10" name="userid">
+    <column id="21" parent="10" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="23" parent="10" name="username">
+    <column id="22" parent="10" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="24" parent="10" name="password">
+    <column id="23" parent="10" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="25" parent="10" name="email">
+    <column id="24" parent="10" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="26" parent="10" name="usertype">
+    <column id="25" parent="10" name="usertype">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="27" parent="10" name="phone">
+    <column id="26" parent="10" name="phone">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="28" parent="11" name="lastUserID">
+    <column id="27" parent="11" name="lastUserID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="29" parent="12" name="lastUserId">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="30" parent="13" name="userid">
+    <column id="28" parent="12" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="31" parent="13" name="username">
+    <column id="29" parent="12" name="username">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="13" name="password">
+    <column id="30" parent="12" name="password">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="13" name="email">
+    <column id="31" parent="12" name="email">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="13" name="type">
+    <column id="32" parent="12" name="type">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="13" name="phone">
+    <column id="33" parent="12" name="phone">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="36" parent="13" name="userid_UNIQUE">
+    <index id="34" parent="12" name="userid_UNIQUE">
       <ColNames>userid</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="37" parent="13" name="username_UNIQUE">
+    <index id="35" parent="12" name="username_UNIQUE">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="13" name="PRIMARY">
+    <key id="36" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid
 username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="39" parent="13" name="userid_UNIQUE">
+    <key id="37" parent="12" name="userid_UNIQUE">
       <ColNames>userid</ColNames>
       <UnderlyingIndexName>userid_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="40" parent="13" name="username_UNIQUE">
+    <key id="38" parent="12" name="username_UNIQUE">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="41" parent="14" name="userid">
+    <column id="39" parent="13" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="42" parent="14" name="username">
+    <column id="40" parent="13" name="username">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="14" name="name">
+    <column id="41" parent="13" name="name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="14" name="address">
+    <column id="42" parent="13" name="address">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="14" name="description">
+    <column id="43" parent="13" name="description">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="46" parent="14" name="pbx">
+    <column id="44" parent="13" name="pbx">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="47" parent="14" name="username_idx">
+    <column id="45" parent="13" name="invitationkey">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="46" parent="13" name="username_idx">
       <ColNames>username</ColNames>
     </index>
-    <index id="48" parent="14" name="username_idx_c">
+    <index id="47" parent="13" name="username_idx_c">
       <ColNames>username</ColNames>
     </index>
-    <key id="49" parent="14" name="PRIMARY">
+    <key id="48" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid
 username
 name</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="50" parent="14" name="userid_c">
+    <foreign-key id="49" parent="13" name="userid_c">
       <ColNames>userid</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <foreign-key id="51" parent="14" name="username_c">
+    <foreign-key id="50" parent="13" name="username_c">
       <ColNames>username</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="52" parent="15" name="userid">
+    <column id="51" parent="14" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="53" parent="15" name="username">
+    <column id="52" parent="14" name="username">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="54" parent="15" name="university">
+    <column id="53" parent="14" name="university">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="15" name="department">
+    <column id="54" parent="14" name="department">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="15" name="grad_date">
+    <column id="55" parent="14" name="grad_date">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="57" parent="15" name="birth_date">
+    <column id="56" parent="14" name="birth_date">
       <Position>6</Position>
       <DataType>date|0</DataType>
     </column>
-    <index id="58" parent="15" name="userid_UNIQUE">
+    <index id="57" parent="14" name="userid_UNIQUE">
       <ColNames>userid</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="59" parent="15" name="username_idx">
+    <index id="58" parent="14" name="username_idx">
       <ColNames>username</ColNames>
     </index>
-    <key id="60" parent="15" name="PRIMARY">
+    <key id="59" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid
 username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="61" parent="15" name="userid_UNIQUE">
+    <key id="60" parent="14" name="userid_UNIQUE">
       <ColNames>userid</ColNames>
       <UnderlyingIndexName>userid_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="62" parent="15" name="userid_i">
+    <foreign-key id="61" parent="14" name="userid_i">
       <ColNames>userid</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <foreign-key id="63" parent="15" name="username_i">
+    <foreign-key id="62" parent="14" name="username_i">
       <ColNames>username</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="64" parent="16" name="internship_id">
+    <column id="63" parent="15" name="internship_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="65" parent="16" name="intern">
+    <column id="64" parent="15" name="intern">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="16" name="supervisor">
+    <column id="65" parent="15" name="supervisor">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="16" name="company">
+    <column id="66" parent="15" name="company">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="16" name="department">
+    <column id="67" parent="15" name="department">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="16" name="start_date">
+    <column id="68" parent="15" name="start_date">
       <Position>6</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="70" parent="16" name="end_date">
+    <column id="69" parent="15" name="end_date">
       <Position>7</Position>
       <DataType>date|0</DataType>
     </column>
-    <index id="71" parent="16" name="company_idx">
+    <index id="70" parent="15" name="company_idx">
       <ColNames>company</ColNames>
     </index>
-    <index id="72" parent="16" name="intern_idx">
+    <index id="71" parent="15" name="intern_idx">
       <ColNames>intern</ColNames>
     </index>
-    <index id="73" parent="16" name="supervisor_idx">
+    <index id="72" parent="15" name="supervisor_idx">
       <ColNames>supervisor</ColNames>
     </index>
-    <key id="74" parent="16" name="PRIMARY">
+    <key id="73" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>internship_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="75" parent="16" name="intern">
+    <foreign-key id="74" parent="15" name="intern">
       <ColNames>intern</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>intern</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="76" parent="16" name="supervisor">
+    <foreign-key id="75" parent="15" name="supervisor">
       <ColNames>supervisor</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>supervisor</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="77" parent="16" name="company">
+    <foreign-key id="76" parent="15" name="company">
       <ColNames>company</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>company</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="78" parent="17" name="userid">
+    <column id="77" parent="16" name="userid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="79" parent="17" name="username">
+    <column id="78" parent="16" name="username">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="17" name="name">
+    <column id="79" parent="16" name="name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="17" name="surname">
+    <column id="80" parent="16" name="surname">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="82" parent="17" name="department">
+    <column id="81" parent="16" name="department">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="83" parent="17" name="username_idx">
+    <index id="82" parent="16" name="username_idx">
       <ColNames>username</ColNames>
     </index>
-    <index id="84" parent="17" name="username_idx_sv">
+    <index id="83" parent="16" name="username_idx_sv">
       <ColNames>username</ColNames>
     </index>
-    <key id="85" parent="17" name="PRIMARY">
+    <key id="84" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid
 username</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="86" parent="17" name="userid_sv">
+    <foreign-key id="85" parent="16" name="userid_sv">
       <ColNames>userid</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <foreign-key id="87" parent="17" name="username_sv">
+    <foreign-key id="86" parent="16" name="username_sv">
       <ColNames>username</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="88" parent="18" name="task_id">
+    <column id="87" parent="17" name="task_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="89" parent="18" name="given_by">
+    <column id="88" parent="17" name="given_by">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="18" name="given_to">
+    <column id="89" parent="17" name="given_to">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="91" parent="18" name="type">
+    <column id="90" parent="17" name="type">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="92" parent="18" name="description">
+    <column id="91" parent="17" name="description">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="93" parent="18" name="start_date">
+    <column id="92" parent="17" name="start_date">
       <Position>6</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="94" parent="18" name="end_date">
+    <column id="93" parent="17" name="end_date">
       <Position>7</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="95" parent="18" name="status">
+    <column id="94" parent="17" name="status">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="96" parent="18" name="doc_address">
+    <column id="95" parent="17" name="doc_address">
       <Position>9</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="97" parent="18" name="given_by_idx">
+    <index id="96" parent="17" name="given_by_idx">
       <ColNames>given_by</ColNames>
     </index>
-    <index id="98" parent="18" name="given_to_idx">
+    <index id="97" parent="17" name="given_to_idx">
       <ColNames>given_to</ColNames>
     </index>
-    <index id="99" parent="18" name="task_id_UNIQUE">
+    <index id="98" parent="17" name="task_id_UNIQUE">
       <ColNames>task_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="100" parent="18" name="PRIMARY">
+    <key id="99" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>task_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="101" parent="18" name="task_id_UNIQUE">
+    <key id="100" parent="17" name="task_id_UNIQUE">
       <ColNames>task_id</ColNames>
       <UnderlyingIndexName>task_id_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="102" parent="18" name="given_by">
+    <foreign-key id="101" parent="17" name="given_by">
       <ColNames>given_by</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>supervisor</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="103" parent="18" name="given_to">
+    <foreign-key id="102" parent="17" name="given_to">
       <ColNames>given_to</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>intern</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="104" parent="19" name="id">
+    <column id="103" parent="18" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="105" parent="19" name="intern">
+    <column id="104" parent="18" name="intern">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="106" parent="19" name="supervisor">
+    <column id="105" parent="18" name="supervisor">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="107" parent="19" name="team_intern_idx">
+    <index id="106" parent="18" name="team_intern_idx">
       <ColNames>intern</ColNames>
     </index>
-    <index id="108" parent="19" name="team_sv_idx">
+    <index id="107" parent="18" name="team_sv_idx">
       <ColNames>supervisor</ColNames>
     </index>
-    <foreign-key id="109" parent="19" name="team_intern">
+    <foreign-key id="108" parent="18" name="team_intern">
       <ColNames>intern</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>intern</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="110" parent="19" name="team_sv">
+    <foreign-key id="109" parent="18" name="team_sv">
       <ColNames>supervisor</ColNames>
       <RefSchemaName>track_in</RefSchemaName>
       <RefTableName>supervisor</RefTableName>

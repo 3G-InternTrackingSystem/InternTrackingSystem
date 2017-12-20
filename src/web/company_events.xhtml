@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+>
 
 <h:head>
-    <link href="resource/css/stylesheet.css" rel="stylesheet" type="text/css"/>
     <title> TrackIn</title>
+    <link href="resource/css/stylesheet.css" rel="stylesheet" type="text/css" />
 </h:head>
+
 <h:body>
+
     <ui:composition template="layout.xhtml">
         <ui:define name="navigation">
             <div class="ui-g navigation-menu">
@@ -37,22 +39,22 @@
                     </h:form>
 
                 </div>
-                <div class="ui-g-2 navigation">
+                <div class="ui-g-2 navigation  selected-navigation">
                     <h:form>
                         <p:button outcome="company_events"
                                   value="Events"
-                                  styleClass="navigation-button"
+                                  styleClass="navigation-button selected-navigation-button"
                         >
                             <f:param name="id" value="10" />
                         </p:button>
                     </h:form>
 
                 </div>
-                <div class="ui-g-2 navigation selected-navigation">
+                <div class="ui-g-2 navigation">
                     <h:form>
                         <p:button outcome="company_match"
                                   value="Match"
-                                  styleClass="navigation-button selected-navigation-button"
+                                  styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
                         </p:button>
@@ -92,43 +94,22 @@
         </ui:define>
 
         <ui:define name="content">
-            <div class="ui-g">
-                <div class="ui-g-6">
-                    <h3>Free Interns</h3>
-                    <p:panelGrid style="margin-top:20px">
-                        <f:facet name="header">
-                            <p:row>
-                                <p:column>Name</p:column>
-                                <p:column>Department</p:column>
-                                <p:column>Start Date</p:column>
-                                <p:column>End Date</p:column>
-                            </p:row>
-                        </f:facet>
+            <div style="text-align: center">
+                <p:panelGrid style="margin-top:20px; text-align: center">
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column>Event Name</p:column>
+                            <p:column>Date</p:column>
+                            <p:column>Time</p:column>
+                            <p:column>Location</p:column>
+                        </p:row>
 
-
-                        <f:facet name="footer">
-                        </f:facet>
-                    </p:panelGrid>
-                </div>
-
-                <div class="ui-g-6">
-                    <h3>Available Supervisors</h3>
-                    <p:panelGrid style="margin-top:20px">
-                        <f:facet name="header">
-                            <p:row>
-                                <p:column>Name</p:column>
-                                <p:column>Department</p:column>
-                                <p:column>Number of Interns</p:column>
-                                <p:column>Availability</p:column>
-                            </p:row>
-                        </f:facet>
-
-
-                        <f:facet name="footer">
-                        </f:facet>
-                    </p:panelGrid>
-                </div>
+                    </f:facet>
+                    <f:facet name="footer">
+                    </f:facet>
+                </p:panelGrid>
             </div>
+
         </ui:define>
     </ui:composition>
 </h:body>

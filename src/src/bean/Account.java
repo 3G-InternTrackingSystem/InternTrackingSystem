@@ -10,6 +10,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -27,7 +29,6 @@ public class Account implements Serializable {
     public static int USERTYPE_COMPANY = 2;
     public static int USERTYPE_INTERN = 3;
     public static int USERTYPE_SUPERVISOR = 4;
-
 
     private String userName;
     private String password;
@@ -114,6 +115,14 @@ public class Account implements Serializable {
         this.signupEmail = signupEmail;
     }
 
+    public String getInvitationKey() {
+        return invitationKey;
+    }
+
+    public void setInvitationKey(String invitationKey) {
+        this.invitationKey = invitationKey;
+    }
+
     public String loginUser(){
         Logger.getLogger(getClass().getName()).info("bean.Account: username is " + userName);
         Logger.getLogger(getClass().getName()).info("bean.Account: password is " + password);
@@ -135,6 +144,7 @@ public class Account implements Serializable {
             }
 
             stmt.close();
+
 
             if( userType == null) {
                 Logger.getLogger(getClass().getName() ).info("Account: no user found");
@@ -206,6 +216,8 @@ public class Account implements Serializable {
 
 
             stmt.close();
+
+
 
 
             if( userType == USERTYPE_FREE_INTERN) {
@@ -308,4 +320,5 @@ public class Account implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
     }
+
 }

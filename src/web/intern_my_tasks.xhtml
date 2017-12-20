@@ -12,31 +12,20 @@
     <ui:composition template="layout.xhtml">
         <ui:define name="navigation">
             <div class="ui-g navigation-menu">
+                <div class="ui-g-2 navigation selected-navigation">
+                    <h:form>
+                        <p:button outcome="intern_my_tasks"
+                                  value="My Tasks"
+                                  styleClass="navigation-button selected-navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+                </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="supervisor_individuals"
-                                  value="Individuals"
-                                  styleClass="navigation-button"
-                        >
-                            <f:param name="id" value="10" />
-                        </p:button>
-                    </h:form>
-                </div>
-                <div class="ui-g-2 navigation ">
-                    <h:form>
-                        <p:button outcome="supervisor_teams"
-                                  value="Teams"
-                                  styleClass="navigation-button"
-                        >
-                            <f:param name="id" value="10" />
-                        </p:button>
-                    </h:form>
-
-                </div>
-                <div class="ui-g-3 navigation">
-                    <h:form>
-                        <p:button outcome="supervisor_waiting_tasks"
-                                  value="Waiting Tasks"
+                        <p:button outcome="intern_events"
+                                  value="Events"
                                   styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
@@ -46,7 +35,7 @@
                 </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="supervisor_schedule"
+                        <p:button outcome="intern_schedule"
                                   value="Schedule"
                                   styleClass="navigation-button"
                         >
@@ -55,11 +44,22 @@
                     </h:form>
 
                 </div>
-                <div class="ui-g-2 navigation selected-navigation">
+                <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="supervisor_profile"
+                        <p:button outcome="intern_documents"
+                                  value="Documents"
+                                  styleClass="navigation-button"
+                        >
+                            <f:param name="id" value="10" />
+                        </p:button>
+                    </h:form>
+
+                </div>
+                <div class="ui-g-2 navigation">
+                    <h:form>
+                        <p:button outcome="intern_profile"
                                   value="Profile"
-                                  styleClass="navigation-button selected-navigation-button"
+                                  styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
                         </p:button>

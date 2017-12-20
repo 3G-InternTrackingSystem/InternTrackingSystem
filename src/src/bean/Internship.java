@@ -3,6 +3,8 @@ package bean;
 import util.DatabaseConnection;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import Internship.*;
@@ -17,13 +19,27 @@ import java.util.logging.Logger;
 @RequestScoped
 public class Internship {
 
+    /*
     @Inject
-    private Account account;
+    private Account neededBean;
+
+    public Account getAccount()
+    {
+        return neededBean;
+    }
+
+    public void setAccount(Account neededBean)
+    {
+        this.neededBean = neededBean;
+    }
+*/
 
     private Company company;
     private Intern intern = new Intern();
     private Supervisor supervisor;
     private Team team;
+
+    private String userName;
 
     public void createInternData(){
         //Get connection
@@ -112,6 +128,18 @@ public class Internship {
         this.team = team;
     }
 
+    public String getUserName() {
+        return userName;
+    }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
+    public void lalala() {
+        Account account = (Account) FacesContext.getCurrentInstance().
+                getExternalContext().getSessionMap().get("account");
+        if( account != null)
+        Logger.getLogger(getClass().getName()).info("Account is inject yo: "+ account.getUserName() );
+    }
 }

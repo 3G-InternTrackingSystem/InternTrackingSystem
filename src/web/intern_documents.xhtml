@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:f="http://xmlns.jcp.org/jsf/core"  xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <link href="resource/css/stylesheet.css" rel="stylesheet" type="text/css"/>
     <title> TrackIn</title>
 </h:head>
 <h:body>
@@ -18,18 +14,18 @@
             <div class="ui-g navigation-menu">
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_intern_list"
-                                  value="Intern List"
+                        <p:button outcome="intern_my_tasks"
+                                  value="My Tasks"
                                   styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
                         </p:button>
                     </h:form>
                 </div>
-                <div class="ui-g-3 navigation">
+                <div class="ui-g-2 navigation ">
                     <h:form>
-                        <p:button outcome="company_supervisor_list"
-                                  value="Supervisor List"
+                        <p:button outcome="intern_events"
+                                  value="Events"
                                   styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
@@ -39,8 +35,8 @@
                 </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_events"
-                                  value="Events"
+                        <p:button outcome="intern_schedule"
+                                  value="Schedule"
                                   styleClass="navigation-button"
                         >
                             <f:param name="id" value="10" />
@@ -50,8 +46,8 @@
                 </div>
                 <div class="ui-g-2 navigation selected-navigation">
                     <h:form>
-                        <p:button outcome="company_match"
-                                  value="Match"
+                        <p:button outcome="intern_documents"
+                                  value="Documents"
                                   styleClass="navigation-button selected-navigation-button"
                         >
                             <f:param name="id" value="10" />
@@ -61,7 +57,7 @@
                 </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_profile"
+                        <p:button outcome="intern_profile"
                                   value="Profile"
                                   styleClass="navigation-button"
                         >
@@ -91,45 +87,7 @@
             </div>
         </ui:define>
 
-        <ui:define name="content">
-            <div class="ui-g">
-                <div class="ui-g-6">
-                    <h3>Free Interns</h3>
-                    <p:panelGrid style="margin-top:20px">
-                        <f:facet name="header">
-                            <p:row>
-                                <p:column>Name</p:column>
-                                <p:column>Department</p:column>
-                                <p:column>Start Date</p:column>
-                                <p:column>End Date</p:column>
-                            </p:row>
-                        </f:facet>
 
-
-                        <f:facet name="footer">
-                        </f:facet>
-                    </p:panelGrid>
-                </div>
-
-                <div class="ui-g-6">
-                    <h3>Available Supervisors</h3>
-                    <p:panelGrid style="margin-top:20px">
-                        <f:facet name="header">
-                            <p:row>
-                                <p:column>Name</p:column>
-                                <p:column>Department</p:column>
-                                <p:column>Number of Interns</p:column>
-                                <p:column>Availability</p:column>
-                            </p:row>
-                        </f:facet>
-
-
-                        <f:facet name="footer">
-                        </f:facet>
-                    </p:panelGrid>
-                </div>
-            </div>
-        </ui:define>
     </ui:composition>
 </h:body>
 </html>

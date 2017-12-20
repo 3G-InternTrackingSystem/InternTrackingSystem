@@ -20,7 +20,7 @@
             <div class="ui-g navigation-menu">
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_profile"
+                        <p:button outcome="company_intern_list"
                                   value="Intern List"
                                   styleClass="navigation-button"
                         >
@@ -30,7 +30,7 @@
                 </div>
                 <div class="ui-g-3 navigation">
                     <h:form>
-                        <p:button outcome="company_profile"
+                        <p:button outcome="company_supervisor_list"
                                   value="Supervisor List"
                                   styleClass="navigation-button"
                         >
@@ -41,7 +41,7 @@
                 </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_profile"
+                        <p:button outcome="company_events"
                                   value="Events"
                                   styleClass="navigation-button"
                         >
@@ -52,7 +52,7 @@
                 </div>
                 <div class="ui-g-2 navigation">
                     <h:form>
-                        <p:button outcome="company_profile"
+                        <p:button outcome="company_match"
                                   value="Match"
                                   styleClass="navigation-button"
                         >
@@ -61,11 +61,11 @@
                     </h:form>
 
                 </div>
-                <div class="ui-g-2 navigation">
+                <div class="ui-g-2 navigation selected-navigation">
                     <h:form>
                         <p:button outcome="company_profile"
                                   value="Profile"
-                                  styleClass="navigation-button"
+                                  styleClass="navigation-button selected-navigation-button"
                         >
                             <f:param name="id" value="10" />
                         </p:button>
@@ -94,6 +94,74 @@
         </ui:define>
 
         <ui:define name="content">
+            <div class="ui-g">
+                <div class="ui-g-5">
+                    <h:form>
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <h:outputLabel for="companyName" value="User name: " style="font-weight: bold" />
+                            <p:inputText id = "companyName"
+                                         value="Insert internship.company.name here"
+                            />
+                            <p:watermark for="companyName" value="Insert internship.company.name here" id="companyNameWaterMark" />
+
+                            <h:outputLabel for="companyPhoneNumber" value="Phone number: " style="font-weight: bold" />
+                            <p:inputText id = "companyPhoneNumber"
+                                         value="Insert internship.company.phoneNumber here"
+                            />
+                            <p:watermark for="companyPhoneNumber" value="Insert internship.company.name here" id="companyPhoneNumberWaterMark" />
+
+                            <h:outputLabel for="pbxNumber" value="Phonebox Number: " style="font-weight: bold" />
+                            <p:inputText id = "pbxNumber"
+                                         value="Insert internship.company.name here"
+                            />
+                            <p:watermark for="pbxNumber" value="Insert internship.company.name here" id="companyPbxWaterMark" />
+
+                            <h:outputLabel for="companyEmail" value="E-mail: " style="font-weight: bold" />
+                            <p:inputText id = "companyEmail"
+                                         value="Insert internship.company.name here"
+                            />
+                            <p:watermark for="companyEmail" value="Insert internship.company.name here" id="companyEmailWaterMark" />
+
+                            <h:outputLabel for="companyAddress" value="Address : " style="font-weight: bold" />
+                            <p:inputText id = "companyAddress"
+                                         value="Insert internship.company.name here"
+                            />
+                            <p:watermark for="companyAddress" value="Insert internship.company.name here" id="companyAddressWaterMark" />
+
+                            <h:outputLabel for="companyDescription" value="Description: " style="font-weight: bold" />
+                            <p:inputText id = "companyDescription"
+                                         value="Insert internship.company.name here"
+                            />
+                            <p:watermark for="companyDescription" value="Insert internship.company.name here" id="companyDescriptionWaterMark" />
+                        </h:panelGrid>
+
+                        <h:commandButton actionListener="#{internship.lalala}" value = "Sign Up"/>
+
+                    </h:form>
+                </div>
+
+                <div class="ui-g-7">
+                    <p:panelGrid style="margin-top:20px">
+                        <f:facet name="header">
+                            <p:row>
+                                <p:column>Department</p:column>
+                                <p:column>Number of Supervisors</p:column>
+                                <p:column>Number of Interns</p:column>
+                                <p:column>Intern Needed</p:column>
+                            </p:row>
+
+
+                        </f:facet>
+
+
+
+                        <f:facet name="footer">
+                        </f:facet>
+                    </p:panelGrid>
+                </div>
+
+            </div>
+
 
         </ui:define>
     </ui:composition>
