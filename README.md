@@ -13,3 +13,5 @@ Specifications:
 - Handling the multiple internships of any student.
 - Creates an internship acceptance letter.
 - Managing an internship which is being done in two different dates.
+
+# this is a test for Atom editor
