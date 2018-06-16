@@ -15,3 +15,4 @@ Specifications:
 - Managing an internship which is being done in two different dates.
 
 # this is a test for Atom editor
+# this is a second test for authentication
